@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>FlexBox Tutorial</title>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine&effect=3d-float">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./build/style.css">
+</head>
+
+<body>
+    <header class="top font-effect-3d-float">
+        <h1>Photo Gallery</h1>
+        <a class="gitlink" href="https://github.com"><i class="fa fa-github fa-3x"></i></a>
+    </header>
+    <div class="wrapper">
+
+        <nav class="flex-nav">
+            <a href="#" class="toggleNav"> &#9776; Menu</a>
+            <ul>
+                <li class="menu-item"><a  href="#">Item 1</a></li>
+                <li class="menu-item"><a href="#">Item 2</a></li>
+                <li class="menu-item"><a href="#">Item 3</a></li>
+                <li class="menu-item"><a href="#">Item 4</a></li>
+                <li class="menu-item"><a href="#">Item 5</a></li>
+                <li class="menu-item"><a href="#">Item 6</a></li>
+            </ul>
+        </nav>
+
+        <section class="hero">
+            <img src="http://lorempixel.com/1000/600/sport" />
+        </section>
+
+        <section class="details">
+            <p>A Gallery to showcase some pictures from my travels</p>
+            <p>Most pictures where either taken with a OnePlus X (RIP) or Xiaomi Mi5</p>
+        </section>
+
+        <section class="controls">
+            <button>Back</button>
+            <button>Pause</button>
+            <button>Next</button>
+            <button>Shuffle</button>
+        </section>
+
+
+        <footer>
+            <p>&copy; Thomas Ankcorn</p>
+        </footer>
+    </div>
+    <script>
+        window.onload = () => {
+            const menuIcon = document.querySelector(".toggleNav");
+            menuIcon.addEventListener("click", () => {
+                document.querySelector(".flex-nav ul").classList.toggle("open")
+                document.querySelectorAll(".menu-item").forEach(item=>{item.classList.toggle("open")})
+            })
+
+        };
+    </script>
+</body>
+
+</html>
