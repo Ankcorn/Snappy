@@ -1,5 +1,7 @@
 const gulp = require('gulp')
 const autoprefixer = require('gulp-autoprefixer')
+const livereload = require('gulp-livereload')
+
 
 gulp.task('styles',()=>{
     gulp.src('css/*.css')
@@ -8,5 +10,6 @@ gulp.task('styles',()=>{
 }) 
 
 gulp.task('watch',()=>{
-    gulp.watch('./css/**.css',['styles'])
+    livereload.listen()
+    gulp.watch(['./css/**.css','index.html','index.js'],['styles'])
 })
