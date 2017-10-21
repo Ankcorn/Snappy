@@ -8,4 +8,5 @@ window.onload = () => {
   const view = new Views(photos)
   const controls = new Controls(photos);
   controls.clickHandler(view.updateGallery);
+  controls.remoteHandler(view.updateGallery)
 };

@@ -45,14 +45,16 @@ class Controls {
     }
 
     pause() {
-        if (!this.running) return 'It is already paused dumbo'
+        if (!this.running) 
+            return 'It is already paused dumbo'
         this.running = false
         const pauseButton = document.querySelector(`.${this.controls.pause}`.replace(" ", "."))
         pauseButton.className = this.controls.play
     }
 
     play(callback) {
-        if (this.running) return 'It is already playing dumbo'
+        if (this.running) 
+            return 'It is already playing dumbo'
         this.running = true
         const playButton = document.querySelector(`.${this.controls.play}`.replace(" ", "."))
         playButton.className = this.controls.pause
@@ -84,6 +86,17 @@ class Controls {
                 this[action](update)
             });
     };
+
+    remoteHandler(update) {
+        const socket = io('http://192.168.1.72:4200')
+        socket.send('hi');
+
+        socket.on('change', (msg) => {
+            const action = msg.button
+            console.log('doing action:' + action);
+                this[action](update)
+        });
+    }
 
     updated() {};
 }
