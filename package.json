@@ -10,7 +10,11 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "express": "4.16.2",
+    "fs-extra": "4.0.2",
+    "morgan": "1.9.0"
+  },
   "devDependencies": {
     "babel-core": "6.26.0",
     "babel-loader": "7.1.2",
