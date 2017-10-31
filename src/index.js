@@ -16,6 +16,7 @@ window.onload = async function () {
     console.log(choice)
     const photos = await loadPhotoMetadata()
     const view = ViewSelector(choice,photos)
+    view.setup()
     const controls = new Controls(photos)
     controls.clickHandler(view.updateGallery)
     //controls.remoteHandler(view.updateGallery)

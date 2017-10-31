@@ -10,7 +10,6 @@ class View {
     this._render(0)
     this.width = 1000
     this.height = 600
-    this.setup()
   }
 
   updateGallery(photoNumber) {
@@ -31,6 +30,7 @@ class View {
       document.querySelector("img").src = photo
       this.photos[number]["photo"] = photo
     } else {
+      //Extract this
       document.querySelector("img").src = this.photos[number].photo
     }
   }
