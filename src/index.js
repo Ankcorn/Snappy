@@ -1,30 +1,44 @@
 import mobileMenu from "./mobile"
 import Controls from "./controls"
 import View from "./views"
-import { loadPhoto } from "./services/loadPhoto"
-import { menuSelector } from "./menu"
+import GridView from "./gridview"
+import {loadPhoto} from "./services/loadPhoto"
+import {menuSelector} from "./menu"
 
-window.onload = () => {
-  loadPhoto(0, 500, 300).then(photo => {
-    //Load Initial photo fast
-    document.querySelector("img").src = photo
-    menuSelector()
-    mobileMenu()
-    //const photos = ['https://i.redd.it/8cj1h4jyblsz.jpg','https://i.redd.it/th2qjd0zrhsz.jpg','https://i.redd.it/9pwsn1yhkksz.jpg','https://i.redd.it/92zfjj82jmsz.jpg','https://c2.staticflickr.com/6/5654/30550383625_d9b12ef7d0_k.jpg'];
+window.onload = async function () {
+  const photo = await loadPhoto(0, 500, 300)
+  document
+    .querySelector("img")
+    .src = photo
+  mobileMenu()
 
-    loadPhotoMetadata(photos => {
-      const view = new View(photos)
-      const controls = new Controls(photos)
-      controls.clickHandler(view.updateGallery)
-      controls.remoteHandler(view.updateGallery)
-    })
+  menuSelector(async(choice) => {
+    console.log(choice)
+    const photos = await loadPhotoMetadata()
+    const view = ViewSelector(choice,photos)
+    const controls = new Controls(photos)
+    controls.clickHandler(view.updateGallery)
+    //controls.remoteHandler(view.updateGallery)
+  })
+
+}
+
+function loadPhotoMetadata() {
+  return new Promise((resolve, reject) => {
+    fetch("http://localhost:3000/photos")
+      .then(res => res.json())
+      .then(json => resolve(json))
+      .catch(err => console.err)
   })
 }
 
-function loadPhotoMetadata(callback) {
-  fetch("http://localhost:3000/photos")
-    .then(res => res.json())
-    .then(json => {
-      callback(json)
-    })
+function ViewSelector(option, photos) {
+  switch (option) {
+    case "Item 1":
+      return new View(photos);
+    case "Item 2":
+      return new GridView(photos);
+    default:
+      break;
+  }
 }

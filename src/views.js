@@ -1,6 +1,6 @@
 import { loadPhoto } from "./services/loadPhoto"
 
-export default class View {
+class View {
   constructor(photos = []) {
     if (photos.length === 0) return
     this.photos = photos.map((photo, index) => ({ number: index }))
@@ -10,6 +10,7 @@ export default class View {
     this._render(0)
     this.width = 1000
     this.height = 600
+    this.setup()
   }
 
   updateGallery(photoNumber) {
@@ -17,6 +18,10 @@ export default class View {
     console.log("calling update", photoNumber)
     this.currentPhoto = this.photos[photoNumber]
     this._render(photoNumber, this.width, this.height)
+  }
+
+  setup(){
+    document.querySelector(".hero").innerHTML = "<img src='' />";
   }
 
   async _render(number, width, height) {
@@ -30,3 +35,5 @@ export default class View {
     }
   }
 }
+
+export default View
