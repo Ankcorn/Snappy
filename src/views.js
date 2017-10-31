@@ -1,6 +1,6 @@
 import { loadPhoto } from "./services/loadPhoto"
 
-export default class Views {
+export default class View {
   constructor(photos = []) {
     if (photos.length === 0) return
     this.photos = photos.map((photo, index) => ({ number: index }))
