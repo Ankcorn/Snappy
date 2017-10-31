@@ -46,7 +46,7 @@ body{
 
 }
 
-li a{
+li.menu-item{
   color:var(--font-color);
   font-weight: 100%;
   letter-spacing: 2px;
@@ -59,7 +59,12 @@ li a{
   transition: all 0.5s;
 }
 
-li a:hover{
+
+li.menu-item:hover{
+  background: var(--hl-color);
+}
+
+li.menu-item.open{
   background: var(--hl-color);
 }
 
@@ -171,7 +176,7 @@ footer p {
       font-weight: 100%;
       letter-spacing: 2px;
       text-decoration: none;
-      background:var(--main:-color);
+      background:var(--main-color);
       padding:20px 15px;
       width: 100%;
       text-align: center;
