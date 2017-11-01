@@ -1,0 +1,7 @@
+.hero.grid{
+    display:flex;
+}
+
+.grid .element{
+    flex:1;
+}
