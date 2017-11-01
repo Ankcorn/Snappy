@@ -76,15 +76,15 @@ class Controls {
     }, 2000)
   }
 
-  clickHandler(update) {
-    document.querySelector(".controls").addEventListener("click", event => {
+  clickHandler(event,update) {
+  
       /** Find key that has been clicked  */
       const action = Object.keys(this.controls).find(
         el => this.controls[el] === event.target.className
       )
       console.log("doing action:" + action)
       this[action](update)
-    })
+  
   }
 
   remoteHandler(update) {

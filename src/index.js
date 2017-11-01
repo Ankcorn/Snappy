@@ -12,14 +12,32 @@ window.onload = async function () {
     .src = photo
   mobileMenu()
 
-  menuSelector(async(choice) => {
+  const photos = await loadPhotoMetadata()
+  const view = new View(photos)
+  const gridview = new GridView(photos)
+  function ViewSelector(option) {
+    switch (option) {
+      case "Item 1":
+        return view;
+      case "Item 2":
+        return gridview;
+      default:
+        break;
+    }
+  }
+
+  let controls = new Controls(photos)
+  document.querySelector(".controls").addEventListener("click", controls.clickHandler(event,view.updateGallery))
+  //controls.remoteHandler(view.updateGallery)
+
+  menuSelector((choice) => {
     console.log(choice)
-    const photos = await loadPhotoMetadata()
-    const view = ViewSelector(choice,photos)
-    view.setup()
-    const controls = new Controls(photos)
-    controls.clickHandler(view.updateGallery)
-    //controls.remoteHandler(view.updateGallery)
+    const currentview = ViewSelector(choice)
+    currentview.setup()
+    console.log(currentview)
+
+    controls.clickHandler(currentview.updateGallery)
+    document.querySelector(".controls").addEventListener("click", controls.clickHandler(event,currentview.updateGallery))
   })
 
 }
@@ -31,15 +49,4 @@ function loadPhotoMetadata() {
       .then(json => resolve(json))
       .catch(err => console.err)
   })
-}
-
-function ViewSelector(option, photos) {
-  switch (option) {
-    case "Item 1":
-      return new View(photos);
-    case "Item 2":
-      return new GridView(photos);
-    default:
-      break;
-  }
 }

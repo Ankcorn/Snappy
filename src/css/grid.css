@@ -1,7 +1,19 @@
 .hero.grid{
     display:flex;
+    min-height: 600px;
+    flex-wrap: wrap;
+    
 }
 
-.grid .element{
-    flex:1;
+.grid.element{
+    padding: 2px 2px;
+    width: 300px;  /* Or whatever */
+     /* Or whatever */
+    
+}
+
+.grid.element.big{
+    width:400px;
+    border:solid 2px red;
+    flex-grow:5;
 }
