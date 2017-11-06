@@ -6,47 +6,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <title>FlexBox Tutorial</title>
+    <title>Snappy</title>
     <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/grid.css">
 </head>
 
 <body>
-    <header class="top font-effect-3d-float">
-        <h1>Photo Gallery</h1>
-        <a class="gitlink" href="https://github.com/ThomasAnkcorn/photo-gallery"><i class="fa fa-github fa-3x"></i></a>
-    </header>
+    <nav>
+        <img src="snappy.svg">
+        <a class="gitlink" href="https://github.com/ThomasAnkcorn/photo-gallery"><i class="fa fa-github fa-2x"></i></a>
+    </nav>
     <div class="wrapper">
 
-        <nav class="flex-nav">
+        <section class="flex-nav">
+            <div class="group">
+                <input type="text" placeholder="GREECE" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+            </div>
             <a href="#" class="toggleNav"> &#9776; Menu</a>
-            <ul id="layout-menu">
-                <li id="item-0" class="menu-item open">Item 1</li>
-                <li id="item-1" class="menu-item">Item 2</li>
-                <li id="item-2" class="menu-item">Item 3</li>
-                <li id="item-3" class="menu-item">Item 4</li>
-                <li id="item-4" class="menu-item">Item 5</li>
-                <li id="item-5" class="menu-item">Item 6</li>
+            <ul class="downloads" id="layout-menu">
+                <li id="item-1" class="menu-item"> <i class="fa fa-download" aria-hidden="true"></i> 2000 x 1312</li>
+                <li id="item-2" class="menu-item"> <i class="fa fa-download" aria-hidden="true"></i> 3008 x 2000</li>
+                <li id="item-3" class="menu-item"> <i class="fa fa-download" aria-hidden="true"></i> 4608 × 3456</li>
             </ul>
-        </nav>
+        </section>
 
         <section class="hero">
-            <img src="" />
+            <img class="snappy" src="" />
         </section>
 
-        <section class="controls">
-            <button class="fa fa-backward" aria-hidden="true"/>
-            <button class="fa fa-play" aria-hidden="true"/>
-            <button class="fa fa-random" aria-hidden="true"/>
-            <button class="fa fa-exchange" aria-hidden="true"/>
-            <button class="fa fa-forward" aria-hidden="true"/>
+        <div class="controls">
+            <button class="fa fa-backward" aria-hidden="true" />
+            <button class="fa fa-play" aria-hidden="true" />
+            <button class="fa fa-random" aria-hidden="true" />
+            <button class="fa fa-exchange" aria-hidden="true" />
+            <button class="fa fa-forward" aria-hidden="true" />
         </section>
-        <footer>
-            <p>&copy; Thomas Ankcorn</p>
-        </footer>
-
     </div>
     <script src="http://192.168.1.72:4200/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="../assets/bundle.js"></script>

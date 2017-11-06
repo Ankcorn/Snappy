@@ -1,4 +1,5 @@
 import { loadPhoto } from "./services/loadPhoto"
+import Controls from "./controls"
 
 class View {
   constructor(photos = []) {
@@ -10,6 +11,8 @@ class View {
     //this._render(0)
     this.width = 1000
     this.height = 600
+    this.controls = new Controls(photos)
+    this.controls.clickHandler(this.updateGallery)
   }
 
   updateGallery(photoNumber) {
@@ -20,17 +23,17 @@ class View {
   }
 
   setup(){
-    document.querySelector(".hero").innerHTML = "<img src='' />";
+    this._render(0)
   }
 
   async _render(number, width, height) {
     if (typeof this.photos[number].photo === "undefined") {
       console.log("Loading new photo")
       const photo = await loadPhoto(number, width)
-      document.querySelector("img").src = photo
+      document.querySelector(".snappy").src = photo
       this.photos[number]["photo"] = photo
     } else {
-      document.querySelector("img").src = this.photos[number].photo
+      document.querySelector(".snappy").src = this.photos[number].photo
     }
   }
 }
