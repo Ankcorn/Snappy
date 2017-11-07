@@ -22,7 +22,7 @@ class View {
     this._render(photoNumber, this.width, this.height)
   }
 
-  setup(){
+  setup() {
     this._render(0)
   }
 

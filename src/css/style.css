@@ -86,51 +86,47 @@ li.menu-item.open{
   display: none;
 }
 
-.controls{
+.controls-container{
   position: fixed; 
   bottom: 0;
-  margin:0 auto;
   display:flex;
   justify-content: center;
   width: 100%;
+  margin:0 auto;
+}
+.controls{
+  position: fixed; 
+  bottom: 0; 
+  background-color:var(--main-color);
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+  opacity: 0;
+  transition:1s;
 }
 
-footer{
-  display:flex;
-  justify-content: center;
+.controls.visible{
+  opacity:1;
 }
-
-footer p {
-  color:var(--font-color);
-}
-
 .controls button{
   padding:10px 20px;
-  margin:0px 0px;
   border:none;
   background-color:var(--main-color);
   color:var(--font-color);
-}
-.fa-backward{
-  border-top-left-radius: 4px;
-}
-.fa-forward{
-  border-top-right-radius: 4px;
 }
 .snappy{
     width:100%;
 }
 
-  .wrapper{
+.wrapper{
     vertical-align: top;
     max-width: calc(100%-20px);
     margin:0 auto;
     margin-top:10px;
-  }
-  .downloads{
+}
+.downloads{
     color:#ffffff;
-  }
-  .hero{
+}
+.hero{
     text-align: center;
     background:var(--hl-color);
     padding:10px;
@@ -138,24 +134,20 @@ footer p {
     color:var(--font-color);
     font-weight: 100%;
     box-shadow: 0px 0px 3px 3px var(--dark-color);
-  }
+}
 
-  .hero img{
-    max-height: 600px;
-  }
-
-  .flex-nav ul{
+.flex-nav ul{
     list-style: none;
     margin: 0px;
     padding: 0px;
     display: flex;
     align-content:center
-  }
+}
 
-  .flex-nav li{
+.flex-nav li{
     width:150px;
     padding:8px 8px;
-  }
+}
 
   @media all and (max-width: 1000px){
     .flex-nav ul{
