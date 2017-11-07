@@ -115,6 +115,14 @@ li.menu-item.open{
 }
 .snappy{
     width:100%;
+    transition: all 200ms ease-in;
+}
+.snappy.big{
+  top:0px;
+  left:0px;
+  position:fixed;
+  width:100%;
+  height:100%;
 }
 
 .wrapper{
