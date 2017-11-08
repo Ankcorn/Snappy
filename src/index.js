@@ -5,9 +5,10 @@ import { loadPhoto } from "./services/loadPhoto"
 import { menuSelector } from "./menu"
 
 window.onload = async function() {
-  const photo = await loadPhoto(0, 500, 300)
-  document.querySelector(".snappy").src = photo
   mobileMenu()
+  const photo = await loadPhoto(0, 4608, 3456)
+  document.querySelector(".snappy").src = photo
+  
 
   const photos = await loadPhotoMetadata()
   const view = new View(photos)

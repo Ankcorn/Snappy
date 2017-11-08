@@ -62,7 +62,7 @@ li.menu-item{
   background:var(--dark-color);
   padding:6px 10px;
   border-radius:20px;
-  margin:0 15px;
+  margin:10px 15px;
   display: inline-block;
   width: 100%;
   text-align: center;
@@ -116,13 +116,17 @@ li.menu-item.open{
 .snappy{
     width:100%;
     transition: all 200ms ease-in;
+    transform: scale(1);
 }
 .snappy.big{
   top:0px;
   left:0px;
   position:fixed;
+
   width:100%;
   height:100%;
+  transform:scaleX(), scaleY();
+  transition: all 200ms ease-in;
 }
 
 .wrapper{

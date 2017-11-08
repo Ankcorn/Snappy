@@ -55,14 +55,14 @@ class Controls {
       `.${this.controls.expand}`.replace(" ", ".")
     )
     expandButton.className = this.controls.compress
-    document.querySelector('.snappy').classList.add('big')
+    document.querySelector(".snappy").classList.add("big")
   }
   compress() {
     const compressButton = document.querySelector(
       `.${this.controls.compress}`.replace(" ", ".")
     )
     compressButton.className = this.controls.expand
-    document.querySelector('.snappy.big').classList.remove('big')
+    document.querySelector(".snappy.big").classList.remove("big")
   }
   pause() {
     if (!this.running) return "It is already paused dumbo"

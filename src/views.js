@@ -9,8 +9,8 @@ class View {
     //this.position = startpoint For later (for cool shit)
     this.updateGallery = this.updateGallery.bind(this)
     //this._render(0)
-    this.width = 1000
-    this.height = 600
+    this.width = 4608
+    this.height = 3456
     this.controls = new Controls(photos)
     this.controls.clickHandler(this.updateGallery)
   }
@@ -23,13 +23,13 @@ class View {
   }
 
   setup() {
-    this._render(0)
+    //this._render(0)
   }
 
   async _render(number, width, height) {
     if (typeof this.photos[number].photo === "undefined") {
       console.log("Loading new photo")
-      const photo = await loadPhoto(number, width)
+      const photo = await loadPhoto(number, width,height)
       document.querySelector(".snappy").src = photo
       this.photos[number]["photo"] = photo
     } else {
