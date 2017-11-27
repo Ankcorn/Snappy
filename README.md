@@ -1,6 +1,6 @@
 # :smiley_cat: Snappy :camera: :rainbow:
 
-Snappy is an image gallery made using html css and javascript. It's Only Dependencies once built are socket.io and fontawesome.
+Snappy is an image gallery made using html css and javascript. It's only dependencies once built are socket.io and fontawesome.
 
 ![Preview](https://github.com/ThomasAnkcorn/photo-gallery/raw/master/preview.png)
 
